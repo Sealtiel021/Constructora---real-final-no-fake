@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('index.index');
 });
+Route::get('/invoice', function () {
+    return view('invoice.invoice');
+});
 Route::get('/products', 'ProductController@index');
 Route::get('/products2', 'ProductController@index');
 Route::post('/products', 'ProductController@create');
