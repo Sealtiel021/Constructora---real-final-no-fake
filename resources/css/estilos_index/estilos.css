@@ -1,0 +1,175 @@
+body{
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+header  img {
+    height: 40px;
+    margin-left: 40px;
+}
+header{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left:0;
+    right:0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+    justify-content: space-around;
+}
+
+header  * {
+    display: inline;
+}
+
+
+header li {
+    margin: 5px;
+    text-decoration: none;
+    border-right: 2px solid rgb(241, 161, 11);
+    padding-right: 15px;
+
+}
+
+header .enc li a {
+    color: rgb(49, 49, 49);
+}
+
+header .contenido
+{
+  display: flex;
+  justify-content: space-between;
+}
+header ul{
+  display: flex;
+
+}
+header ul li{
+  list-style:  none;
+  margin-right: 15px;
+
+}
+ header a {
+   text-decoration: none;
+ }
+.contenido{
+  max-width: 1280px;
+  width: 90%;
+  margin: auto;
+}
+header{
+  background:
+  linear-gradient(rgba(61, 153, 209,.5), rgba(59, 126, 167,.5)),
+  url(../imagenes/constructora.jpeg);
+  height: 100vh;
+  background-size: cover;
+
+
+}
+#contenedor-titulo-flex{
+  display: flex;
+  justify-content: center;
+  margin: 18vh 0;
+
+}
+h1{
+  font-size: 60px;
+  color: #fff;
+  margin: 0;
+
+}
+h2{
+  font-size: 25px;
+  color: #fff;
+
+}
+.Contenedor-titulo {
+  text-align: center;
+}
+.Contenedor-titulo a, #sobre-mi a{ /* en esta seccion se incluyen todos los botones con el mismo estilo */
+  font-size: 14px;
+  color: #fff;
+  background: #24648A;
+  padding: 14px 24px;
+display: inline-block;
+
+}
+p.logo{
+  color: #fff;
+  font-size: 20px;
+
+}
+nav ul li a{
+  color: #fff;
+}
+.contenedor-titulo-flex{
+max-width: 1580px;
+width: 100%;
+}
+
+/* Seccion de sobre mi */
+h3{
+  text-align: center;
+  font-size: 55px;
+  font-weight: normal;
+
+}
+#sobre-mi .contenedor-sobremi{
+  display: flex; /* se utiliza para alinear uno a la do de otro */
+justify-content: space-around; /* separa el texto y las imagenes*/
+
+
+}
+#sobre-mi .texto{
+  width: 42%;  /* le da un porcentaje al texto para hacerlo mejor visible */
+
+}
+/*Seccion servicios*/
+.contenedor-servicios{
+  display: flex;
+  flex-wrap: wrap; /* para separar y que no se peguen*/
+justify-content: space-around;
+color: #fff;
+}
+.Servicio{
+  width: 24%;
+  padding: 34px 30px 38px 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.Servicio h4{
+  font-size: 200%;
+  margin: 0;
+}
+.Servicio p{
+  margin-bottom: 20px;
+  height: 194px;
+}
+.contenedor-servicios .violeta{
+  background-image: linear-gradient(to top, #2D6987, #4B92B6);
+  box-shadow: 0 12px 30px 0 rgba(80, 85, 223, 0.37);
+}
+.contenedor-servicios .celeste{
+  background-image: linear-gradient(to top, #1622A2  , #303A97  );
+  box-shadow: 0 12px 30px 0 rgba(86, 163, 222, 0.3);
+}
+.ondas{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.icono{
+  width: 100px; height: 100px;
+  float: right;
+}
+/* mis trabajos seccion */
+button.owl-prev , button.owl-next {
+
+    font-size: 40px !important;
+}
+span {
+    color: #9a130f;
+}
