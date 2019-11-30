@@ -1,5 +1,15 @@
-
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Facturas</title>
+  <link rel="stylesheet" href="../public/css/app.css">
+  <script src="../public/js/app.js"></script>
+</head>
+<body>
+  <div class="container">
     <div class="row">
             <div class="col-12">
 
@@ -145,12 +155,6 @@
                       <div class="row no-print">
                         <div class="col-12">
 
-                          <a href="" @click.prevent="printme" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                          <button type="button" class="btn btn-success float-right">
-                              <i class="fa fa-credit-card"></i>
-                              Realizar pago
-                          </button>
-
                           <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> Generar PDF
                           </button>
@@ -165,3 +169,12 @@
 
     </div>
 </div>
+
+</body>
+</html>
+
+
+
+
+
+

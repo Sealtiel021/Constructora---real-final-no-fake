@@ -20,8 +20,9 @@
       <p class="logo">Constructora La Inquebrantable</p>
       <nav>
         <ul>
-          <li><a href="">Login</a></li>
-          <li><a href="{{route('reg')}}">Registro</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('register') }}">Registro usuarios</a></li>    
+          <li><a href="{{route('reg')}}">Registro obras</a></li>
           <li><a href="{{route('histo')}}">Historial</a></li>
           <li><a href="{{route('deta')}}">Detalles</a></li>
           <li><a href="{{route('rep')}}">Reportes</a></li>

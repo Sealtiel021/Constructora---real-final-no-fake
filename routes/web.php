@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 Route::get('/invoice', function () {
     return view('invoice.invoice');
+    // $pdf = PDF::loadView('invoice.invoice');
+    // return $pdf->download('invoice.pdf');
 });
 Route::get('/products', 'ProductController@index');
 Route::get('/products2', 'ProductController@index');
@@ -42,3 +44,7 @@ Route::get('user/rep', [
 Route::get('user/in', [
     'as' => 'in', 'uses' => 'WorkController@showIn'
 ]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
