@@ -8,18 +8,17 @@ class WorkController extends Controller
 {
   public function index()
 {
+  $details = Work::all();
 
-    $registros = Work::all();
-    $titulo = "Obras";
-
-    return view("registry.registro" ,compact('registros','titulo')  );
+  return view("history.historial",compact('details'));
 
 }
 
 public function show($id)
 {
 
-    return  Work::find($id);
+    $detail = Work::find($id);
+    return view('history.verHistoria',compact('detail'));
 
 }
 
@@ -83,7 +82,6 @@ public function delete(Request $request, $id)
 }
 public function showDetail()
 {
-
 
 return view("detail.detalles");
 }

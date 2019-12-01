@@ -247,46 +247,9 @@
     </header>
 
     <main>
-        <h1>Historial</h1>
-
-
-        <div class="search-container">
-            <form class="form-style-2" action="">
-                <input class="input-field" type="text" placeholder="Buscar obra.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-
-        <table>
-          <thead>
-
-
-            <tr>
-                <th>ID</th>
-                <th>name</th>
-
-                <th>Estatus</th>
-                  <th>description</th>
-                <th colspan="1">&nbsp;</th>
-            </tr>
-              </thead>
-              <tbody>
-                @foreach($details as $detail)
-                  <tr>
-                    <td>{{ $detail->id }}</td>
-                    <td>{{ $detail->name }}</td>
-                      <td>{{ $detail->state }}</td>
-                      <td>{{ $detail->description }}</td>
-                      <td>
-                <a href="{{route('history' , ['id' => $detail->id] ) }}">Ver</a>
-                      </td>
-
-                  </tr>
-
-                @endforeach
-              </tbody>
-
-        </table>
+      <p>{{$detail->id}}</p>
+        <h1>{{$detail->name}}</h1>
+      <p>{{$detail->state}}</p>
 
 
 

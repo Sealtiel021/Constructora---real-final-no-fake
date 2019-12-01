@@ -9,10 +9,9 @@ class WorkDetailController extends Controller
   public function index()
 {
 
-    $detalle = WorkDetail::all();
-    $titulo = "Detalles";
+  $details = WorkDetail::all();
 
-    return view("detail.detalles" ,compact('detalle','titulo')  );
+  return view("detail.detalles",compact('details'));
 
 }
 

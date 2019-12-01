@@ -17,15 +17,15 @@ Route::get('/', function () {
 Route::get('/products', 'ProductController@index');
 Route::get('/products2', 'ProductController@index');
 Route::post('/products', 'ProductController@create');
-Route::get('/works', 'WorkController@index');
-Route::get('/worksDetail', 'WorkDetailController@index');
-Route::get('/history', 'WorkController@history');
+
+
+
 Route::get('/reports/{tipo_obra}', 'WorkController@work_report');
 Route::get('user/histo', [
-    'as' => 'histo', 'uses' => 'WorkController@showProfile'
+    'as' => 'histo', 'uses' => 'WorkController@index'
 ]);
 Route::get('user/deta', [
-    'as' => 'deta', 'uses' => 'WorkController@showDetail'
+    'as' => 'deta', 'uses' => 'WorkDetailController@index'
 ]);
 Route::get('user/prod', [
     'as' => 'prod', 'uses' => 'ProductController@showProducts'
@@ -38,4 +38,8 @@ Route::get('user/rep', [
 ]);
 Route::get('user/in', [
     'as' => 'in', 'uses' => 'WorkController@showIn'
+]);
+Route::get('historial/{id}',
+[
+    'as' => 'history', 'uses' => 'WorkController@show'
 ]);

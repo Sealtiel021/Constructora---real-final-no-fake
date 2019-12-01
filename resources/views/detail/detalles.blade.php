@@ -245,13 +245,55 @@
         </nav>
     </header>
 
-    <div class="search-container">
-        <form class="form-style-2" action="">
-            <input class="input-field" type="text" placeholder="Buscar obra.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
 
+    <main>
+        <h1>Buscar Obra</h1>
+
+
+        <div class="search-container">
+            <form class="form-style-2" action="">
+                <input class="input-field" type="text" placeholder="Buscar obra.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+
+        <table>
+          <thead>
+
+
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+
+                <th>Estatus</th>
+                  <th>Imagen</th>
+                <th colspan="2">&nbsp;</th>
+            </tr>
+              </thead>
+              <tbody>
+                @foreach($details as $detail)
+                  <tr>
+                    <td>{{ $detail->id }}</td>
+                    <td>{{ $detail->date }}</td>
+                      <td>{{ $detail->state }}</td>
+                        <td>
+
+
+                      <img src="{{ $detail->image }}" alt="" width="250px" height="250px">
+                      </td>
+
+                      <td>editar</td>
+                      <td>borrar</td>
+                  </tr>
+
+                @endforeach
+              </tbody>
+
+        </table>
+
+
+
+    </main>
 
 </body>
 </html>
