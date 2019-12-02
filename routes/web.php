@@ -33,7 +33,7 @@ Route::get('user/deta', [
     'as' => 'deta', 'uses' => 'WorkDetailController@index'
 ]);
 Route::get('user/prod', [
-    'as' => 'prod', 'uses' => 'ProductController@showProducts'
+    'as' => 'prod', 'uses' => 'ProductController@index'
 ]);
 Route::get('user/reg', [
     'as' => 'reg', 'uses' => 'WorkController@showRegister'
@@ -49,3 +49,16 @@ Route::get('historial/{id}',
 [
     'as' => 'history', 'uses' => 'WorkController@show'
 ]);
+
+Route::get('detalles/{id}/edit',
+[
+    'as' => 'detail', 'uses' => 'WorkDetailController@edit'
+]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

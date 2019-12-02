@@ -21,7 +21,7 @@
         <nav >
             <ul>
               <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Registro usuarios</a></li>    
+              <li><a href="{{ route('register') }}">Registro usuarios</a></li>
               <li><a href="{{route('reg')}}">Registro obras</a></li>
               <li><a href="{{route('histo')}}">Historial</a></li>
               <li><a href="{{route('deta')}}">Detalles</a></li>
@@ -68,8 +68,11 @@
                       <img src="{{ $detail->image }}" alt="" width="250px" height="250px">
                       </td>
 
-                      <td>editar</td>
-                      <td>borrar</td>
+                      <td >
+
+<a href="{{route('detail' , ['id' => $detail->id] ) }}">editar</a>
+                        </td>
+                      
                   </tr>
 
                 @endforeach

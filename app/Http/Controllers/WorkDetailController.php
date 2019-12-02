@@ -20,6 +20,7 @@ public function show($id)
     return  WorkDetail::find($id);
 }
 
+
 public function store(Request $request)
 {
 

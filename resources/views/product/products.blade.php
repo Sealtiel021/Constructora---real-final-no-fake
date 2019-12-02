@@ -1,83 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Catalaago de Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../public/css/app.css">
+    <script src="../public/js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
-  <div>
+    <header>
+        <div class="Logo">
+            <img src="https://img.icons8.com/color/48/000000/worker-female.png">
+            <h1>La inquebrantable</h1>
+        </div>
+        <nav >
+            <ul>
+              <li><a href="{{ route('login') }}">Login</a></li>
+              <li><a href="{{ route('register') }}">Registro usuarios</a></li>
+              <li><a href="{{route('reg')}}">Registro obras</a></li>
+              <li><a href="{{route('histo')}}">Historial</a></li>
+              <li><a href="{{route('deta')}}">Detalles</a></li>
+              <li><a href="{{route('rep')}}">Reportes</a></li>
+              <li><a href="{{route('prod')}}">Productos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h2></h2>
-
-    <table class="egt">
-      @foreach ($productos as $product)
-      <tr>
-        <p>This is user {{ $product->name }}</p>
-        <p>This is user {{ $product->provider->nameProvider }}</p>
-      </tr>
-      @endforeach
-
-
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto shadow-lg p-4 mb-4 bg-white">
-
-        <form action="/products" method="POST">
-
-            @csrf
-
-              <input type="text" class="form-control" placeholder="Introduce X" value="agregar" name="agregar" />
-
-              <input type="submit" class="btn btn-primary" value="Agregar" />
+    <main>
+        <h1>Catalago de productos</h1>
 
 
-  </form>
-      </div>
+        <div class="search-container">
+            <form class="form-style-2" action="">
+                <input class="input-field" type="text" placeholder="Buscar producto.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
 
-    </div>
-<div class="row">
-  <div class="col-md-6 mx-auto">
-  <table id="tableNews" class="table table-hover">
-  <thead class="thead-dark">
-    <tr >
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Eliminar</th>
-      <th scope="col">Modificar</th>
-    </tr>
-  </thead>
-  <tbody>
-  @forelse ($all as $item)
-    <tr>
-      <th scope="row">{{$item->id}}</th>
-      <td>{{$item->name}}</td>
-      <td>
-            <button type="button" class="btn btn-danger elimina" value="{{$item->id}}" >Eliminar</button>
+        <table>
+          <thead>
 
 
-      </td>
-      <td>  <button type="button" class="btn btn-primary modalJq" value="{{$item->id}}" data-toggle="modal" data-target="#exampleModal">
-             Modificar
-      </button></td>
-    </tr>
-  @empty
+            <tr>
+                <th>ID</th>
+                <th>name</th>
 
-  @endforelse
+                <th>provider_id</th>
+
+
+            </tr>
+              </thead>
+              <tbody>
+                @foreach($details as $detail)
+                  <tr>
+                    <td>{{ $detail->id }}</td>
+                    <td>{{ $detail->name }}</td>
+                      <td>{{ $detail->provider_id }}</td>
+
+
+                  </tr>
+
+                @endforeach
+              </tbody>
+
+        </table>
 
 
 
-  </tbody>
-</table>
+    </main>
 
-  </div>
-</div>
-  </div>
-
-
-
-  </table>
-  </div>
 </body>
 </html>

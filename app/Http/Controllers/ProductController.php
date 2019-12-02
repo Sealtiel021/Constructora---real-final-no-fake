@@ -8,11 +8,10 @@ class ProductController extends Controller
 {
     public function index()
   {
+    $details = Product::all();
 
-      $productos = Product::all();
-      $titulo = "Productos";
+    return view("product.products",compact('details'));
 
-      return view("index.index" ,compact('productos','titulo')  );
 
   }
 
