@@ -248,9 +248,14 @@
 
     <main>
   <h2>Actualizar estado de Obra</h2>
-<a href="{{route('detail.detalles')}}" class="btn btn-default pull-right">Regresar</a>
+<a href="{{route('deta')}}" class="btn btn-default pull-right">Regresar</a>
+{!! Form::model($detail, ['route' => ['detail.update', $detail->id], 'method' => 'PUT'])!!}
+@include('detail.fragment.form')
+{!! Form::close()!!}
 
     </main>
-
+<div class="col-sm-4">
+  @include('detail.fragment.aside')
+</div>
 </body>
 </html>

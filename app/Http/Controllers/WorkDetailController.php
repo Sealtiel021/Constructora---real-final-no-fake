@@ -14,6 +14,12 @@ class WorkDetailController extends Controller
   return view("detail.detalles",compact('details'));
 
 }
+public function edit($id)
+{
+    $detail =WorkDetail::find($id);
+    return view("detail.editarDetalles",compact('detail'));
+}
+
 
 public function show($id)
 {
