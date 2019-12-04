@@ -45,6 +45,10 @@ Route::get('user/prod', [
   Route::get('user/rep', [
       'as' => 'rep', 'uses' => 'WorkController@showReports'
   ]);
+
+  Route::get('user/rep/invoice', [
+    'as' => 'rep', 'uses' => 'InvoiceController@index'
+]);
   Route::get('user/in', [
       'as' => 'in', 'uses' => 'WorkController@showIn'
   ]);

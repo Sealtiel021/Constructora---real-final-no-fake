@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Facturas</title>
-  <link rel="stylesheet" href="../public/css/app.css">
-  <script src="../public/js/app.js"></script>
+  <link  href="css/app.css" rel="stylesheet"> 
+  <script src="js/app.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="row">
             <div class="col-12">
 
-                    <!-- Main content -->
+              <!-- Main content -->
+              @foreach ($invoices as $invoice)
                     <div class="invoice p-3 mb-3">
                       <!-- title row -->
                       <div class="row">
                         <div class="col-12">
                           <h4>
                             <i class="fa fa-globe"></i> La inquebrantable, Inc.
-                            <small class="float-right">Fecha: 2/12/2019</small>
                           </h4>
                         </div>
                         <!-- /.col -->
@@ -50,11 +50,11 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
-                          <b>Invoice #076120</b><br>
+                          <b>Invoice</b><br>
                           <br>
-                          <b>Orden ID:</b> 4F3S8J<br>
-                          <b>Fecha de pago:</b> 2/22/2014<br>
-                          <b>RFC:</b> 968-34567
+                          <b>Orden ID:</b> {{ $invoice->id }}<br>
+                          <b>Fecha de pago:</b> {{ $invoice->dateInvoice }}<br>
+                          <b>RFC:</b> {{ $invoice->rfc }}
                         </div>
                         <!-- /.col -->
                       </div>
@@ -63,45 +63,22 @@
                       <!-- Table row -->
                       <div class="row">
                         <div class="col-12 table-responsive">
+
                           <table class="table table-striped">
                             <thead>
                             <tr>
-                              <th>Cant</th>
+                              <th>Cantidad</th>
                               <th>Producto</th>
-                              <th>Serial #</th>
-                              <th>Descripcion</th>
-                              <th>Subtotal</th>
+                              <th>Razon social</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>Pulidora</td>
-                              <td>455-981-221</td>
-                              <td>Herramienta marca Truper</td>
-                              <td>$500</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Martillo</td>
-                              <td>247-925-726</td>
-                              <td>Herramienta generica</td>
-                              <td>$80</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Casco seguridad</td>
-                              <td>735-845-642</td>
-                              <td>Ropa de seguridad</td>
-                              <td>$200</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Chaleco antirreflejante</td>
-                              <td>422-568-642</td>
-                              <td>Ropa de seguridad</td>
-                              <td>$150</td>
-                            </tr>
+                                <tr>
+                                <td>${{ $invoice->amount }}</td>
+                                <td>{{ $invoice->reason }}</td>
+                                <td>{{ $invoice->socialReason }}</td>
+                                </tr>
+                                
                             </tbody>
                           </table>
                         </div>
@@ -124,25 +101,17 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-6">
-                          <p class="lead">Monto adeudado desde 2/22/2014</p>
+                          <p class="lead">Monto adeudado desde {{ $invoice->created_at }}</p>
 
                           <div class="table-responsive">
                             <table class="table">
                               <tbody><tr>
                                 <th style="width:50%">Subtotal:</th>
-                                <td>$930</td>
-                              </tr>
-                              <tr>
-                                <th>IVA (9.3%)</th>
-                                <td>$84</td>
-                              </tr>
-                              <tr>
-                                <th>Envio:</th>
-                                <td>$200</td>
+                                <td>${{ $invoice->amount }}</td>
                               </tr>
                               <tr>
                                 <th>Total:</th>
-                                <td>$1214</td>
+                                <td>${{ $invoice->amount }}</td>
                               </tr>
                             </tbody></table>
                           </div>
@@ -163,6 +132,7 @@
                       </div>
 
                     </div>
+                    @endforeach
                     <!-- /.invoice -->
                   </div>
 

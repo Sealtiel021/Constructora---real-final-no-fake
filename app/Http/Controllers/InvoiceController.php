@@ -3,41 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Invoice;
 class InvoiceController extends Controller
 {
   public function index()
 {
 
-    $detalle = WorkDetail::all();
-    $titulo = "Detalles";
+    $invoices = Invoice::all();
 
-    return view("detail.detalles" ,compact('detalle','titulo')  );
+
+    return view("invoice.invoice" ,compact('invoices')  );
 
 }
 
 public function show($id)
 {
-    return  WorkDetail::find($id);
+    return  Invoice::find($id);
 }
 
-public function store(Request $request)
-{
-
-      return  WorkDetail::create( ['name' => $request->input('name'),
-                                'url' => $path  ]  );
-}
 
 public function update(Request $request, $id)
   {
-    $task =  WorkDetail::findOrFail($id);
+    $task =  Invoice::findOrFail($id);
     $task->update($request->all());
     return $task;
   }
 
 public function delete(Request $request, $id)
   {
-    $task =  WorkDetail::findOrFail($id);
+    $task =  Invoice::findOrFail($id);
     $task->delete();
 
     return 204;
