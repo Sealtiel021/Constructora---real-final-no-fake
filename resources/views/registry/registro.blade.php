@@ -22,7 +22,7 @@
       <nav >
           <ul>
             <li><a href="{{ route('login') }}">Login</a></li>
-            <li><a href="{{ route('register') }}">Registro usuarios</a></li>    
+            <li><a href="{{ route('register') }}">Registro usuarios</a></li>
             <li><a href="{{route('reg')}}">Registro obras</a></li>
             <li><a href="{{route('histo')}}">Historial</a></li>
             <li><a href="{{route('deta')}}">Detalles</a></li>
@@ -37,7 +37,8 @@
 
         <div class="form-style-2">
             <div class="form-style-2-heading">Ingresa los datos del proyecto</div>
-                <form action="" method="post">
+                <form action="{{route('save-work')}}" method="POST">
+                    @csrf
                     <label for="folio"><span>Folio <span class="required">*</span></span><input type="text" class="input-field" name="folio" value="" /></label>
                     <label for="nombre"><span>Nombre <span class="required">*</span></span><input type="text" class="input-field" name="nombre" value="" /></label>
                     <label for="descripcion"><span>Descripcion <span class="required">*</span></span><textarea name="descripcion" class="textarea-field"></textarea></label>
@@ -46,8 +47,11 @@
                     <label for="fecha_proyectada"><span>Fecha proyectada <span class="required">*</span></span><input type="date" class="input-field" name="fecha_proyectada" value="" /></label>
                     <label for="fecha_real"><span>Fecha de entrega real <span class="required">*</span></span><input type="date" class="input-field" name="fecha_real" value="" /></label>
                     <label for="ubicacion"><span>Ubicacion<span class="required">*</span></span><input type="text" class="input-field" name="ubicacion" value="" /></label>
-                    <label for="estatus"><span>Estatus<span class="required">*</span></span><input type="text" class="input-field" name="estatus" value="" placeholder="Terminado / en proceso" /></label>
 
+                    <label for="estatus"><span>Estatus<span class="required">*</span></span><select name="estatus" class="select-field">
+                        <option value="terminada">Terminada</option>
+                        <option value="en proceso">Proceso</option>
+                    </select></label>
                     <label for="tipo_proyecto"><span>Tipo de proyecto<span class="required">*</span></span><select name="field4" class="select-field">
                         <option value="Rehabilitacion">Rehabilitacion</option>
                         <option value="Edificacion">Edificacion</option>

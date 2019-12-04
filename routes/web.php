@@ -35,25 +35,34 @@ Route::get('user/deta', [
 Route::get('user/prod', [
     'as' => 'prod', 'uses' => 'ProductController@index'
 ]);
-Route::get('user/reg', [
-    'as' => 'reg', 'uses' => 'WorkController@showRegister'
-]);
-Route::get('user/rep', [
-    'as' => 'rep', 'uses' => 'WorkController@showReports'
-]);
-Route::get('user/in', [
-    'as' => 'in', 'uses' => 'WorkController@showIn'
-]);
-
-Route::get('historial/{id}',
-[
-    'as' => 'history', 'uses' => 'WorkController@show'
-]);
-
+//WORK
+  Route::post('save/work', [
+      'as' => 'save-work', 'uses' => 'WorkController@store'
+  ]);
+  Route::get('user/reg', [
+      'as' => 'reg', 'uses' => 'WorkController@showRegister'
+  ]);
+  Route::get('user/rep', [
+      'as' => 'rep', 'uses' => 'WorkController@showReports'
+  ]);
+  Route::get('user/in', [
+      'as' => 'in', 'uses' => 'WorkController@showIn'
+  ]);
+  Route::get('historial/{id}',
+  [
+      'as' => 'history', 'uses' => 'WorkController@show'
+  ]);
+//WORK
 Route::get('detalles/{id}/edit',
 [
     'as' => 'detail', 'uses' => 'WorkDetailController@edit'
 ]);
+Route::post('update/workDetail/',
+[
+    'as' => 'update-detail', 'uses' => 'WorkDetailController@update'
+]);
+
+Route::resource('detail','WorkDetailController');
 
 Auth::routes();
 

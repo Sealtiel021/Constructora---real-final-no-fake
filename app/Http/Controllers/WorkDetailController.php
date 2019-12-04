@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\WorkDetail;
+use App\Http\Requests\DetailRequest;
 class WorkDetailController extends Controller
 {
   public function index()
@@ -11,6 +12,17 @@ class WorkDetailController extends Controller
 
   $details = WorkDetail::all();
 
+  return view("detail.detalles",compact('details'));
+
+}
+public function update(Request $request)
+{
+  $detail =WorkDetail::find( $request->input('id'));
+  $detail->date =$request->input('fecha_inicio');
+  $detail->image =$request->input('imagen');
+  $detail->state =$request->input('estatus');
+  $detail->save();
+  $details = WorkDetail::all();
   return view("detail.detalles",compact('details'));
 
 }
@@ -34,12 +46,7 @@ public function store(Request $request)
                                 'url' => $path  ]  );
 }
 
-public function update(Request $request, $id)
-  {
-    $task =  WorkDetail::findOrFail($id);
-    $task->update($request->all());
-    return $task;
-  }
+
 
 public function delete(Request $request, $id)
   {

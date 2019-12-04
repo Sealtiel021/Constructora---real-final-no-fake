@@ -248,14 +248,32 @@
 
     <main>
   <h2>Actualizar estado de Obra</h2>
-<a href="{{route('deta')}}" class="btn btn-default pull-right">Regresar</a>
-{!! Form::model($detail, ['route' => ['detail.update', $detail->id], 'method' => 'PUT'])!!}
-@include('detail.fragment.form')
-{!! Form::close()!!}
 
-    </main>
+<a href="{{route('deta')}}" class="btn btn-default pull-right">Regresar</a>
+
+@include('detail.error')
+
+  <form class="" action="{{route('update-detail')}}" method="POST">
+    @csrf
+
+        <input  class="input-field" name="id"  type="hidden" value="{{$detail->id}}" />
+
+      <label for="fecha_inicio"><span>Fecha de inicio <span class="required">*</span></span><input type="date" class="input-field" name="fecha_inicio" value="{{$detail->date}}" /></label>
+
+    <label for="estatus"><span>Estatus<span class="required">*</span></span>
+    <select name="estatus" class="select-field" >
+        <option value="terminada"  @if ($detail->state == "terminada") selected="selected" @endif >Terminada</option>
+        <option value="en proceso"  @if ($detail->state == "en proceso") selected="selected" @endif>Proceso</option>
+    </select>
+
+  </label>
+      <label for="imagen"><span>Imagen<span class="required">*</span></span><input type="text" class="input-field" name="imagen" value="{{$detail->image}}" /></label>
+        <label id="btnEnviar"><span> </span><input type="submit" value="Modificar" /></label>
+  </form>
+
+</main>
 <div class="col-sm-4">
-  @include('detail.fragment.aside')
+
 </div>
 </body>
 </html>

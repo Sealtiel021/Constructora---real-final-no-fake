@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Work;
+use App\WorkDetail;
 class WorkController extends Controller
 {
   public function index()
@@ -25,8 +26,28 @@ public function show($id)
 public function store(Request $request)
 {
 
-      return  Work::create( ['name' => $request->input('name'),
-                                'url' => $path  ]  );
+      $workDetail =  WorkDetail::create( [
+                                      'date' => $request->input('fecha_inicio'),
+                                      'image' =>"x",
+                                      'state' => $request->input('estatus')
+                                    ]  );
+
+      return  Work::create( [  'name' => $request->input('nombre'),
+        'state' => $request->input('estatus'),
+        'description' => $request->input('descripcion'),
+        'dateStart' => $request->input('fecha_inicio'),
+        'dateReal' => $request->input('fecha_real'),
+        'dateProjected' => $request->input('fecha_proyectada'),
+        'type' => $request->input('field4'),
+        'resourceOrigin' => $request->input('origen_recurso'),
+        'totalCost' => $request->input('costo'),
+        'publicPorcent' => 0,
+        'privatePorcent' => 0,
+        'locate' => $request->input('ubicacion'),
+        'lat' => "",
+        'lng' => "",
+        'work_detail_id' =>   $workDetail->id ]  );
+
 }
 
 public function update(Request $request, $id)
