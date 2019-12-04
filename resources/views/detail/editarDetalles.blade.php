@@ -247,12 +247,13 @@
     </header>
 
     <main>
-  <h2>Actualizar estado de Obra</h2>
+
 
 <a href="{{route('deta')}}" class="btn btn-default pull-right">Regresar</a>
 
 @include('detail.error')
-
+<div class="form-style-2">
+    <div class="form-style-2-heading">Actualiza datos del proyecto</div>
   <form class="" action="{{route('update-detail')}}" method="POST">
     @csrf
 
@@ -270,7 +271,7 @@
       <label for="imagen"><span>Imagen<span class="required">*</span></span><input type="text" class="input-field" name="imagen" value="{{$detail->image}}" /></label>
         <label id="btnEnviar"><span> </span><input type="submit" value="Modificar" /></label>
   </form>
-
+  </div>
 </main>
 <div class="col-sm-4">
 

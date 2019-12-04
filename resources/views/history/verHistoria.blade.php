@@ -247,10 +247,31 @@
     </header>
 
     <main>
-      <p>{{$detail->id}}</p>
-        <h1>{{$detail->name}}</h1>
-      <p>{{$detail->state}}</p>
+      <div class="form-style-2">
+          <div class="form-style-2-heading">Datos de la Obra</div>
+          <form >
 
+
+    <td>
+      <h1>Folio de obra: </h1>
+<h2>{{$detail->id}}</h2>
+
+    </td>
+    <td>
+      <h1>Nombre de obra: </h1>
+      <h2>{{$detail->name}}</h2>
+    </td>
+
+
+    <td>
+      <h1>Estado: </h1>
+    <h2>{{$detail->state}}</h2>
+    </td>
+
+  </form>
+
+
+  </div>
 
 
     </main>
